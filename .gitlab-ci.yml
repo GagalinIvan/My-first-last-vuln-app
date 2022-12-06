@@ -1,7 +1,7 @@
 stages:
   - build
   - deploy
-build:
+build-job:
   stage: build
   script:
     - sftp root@kali:/root <<< $'put ./db
@@ -11,7 +11,7 @@ build:
     - sftp root@kali:/root <<< $'put ./php
     - sftp root@kali:/root <<< $'put ./docker-compose.yml
 
-deploy:
+deploy-job:
   stage: deploy
   script:
    - ssh root@kali "docker-compose up --build"
