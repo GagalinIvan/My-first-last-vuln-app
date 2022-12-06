@@ -1,0 +1,17 @@
+stages:
+  - buld
+  - deploy
+build-job:
+  stage: build
+  script:
+    - sftp root@localhost:/root <<< $'put ./db
+    - sftp root@localhost:/root <<< $'put ./httpd
+    - sftp root@localhost:/root <<< $'put ./mariadb
+    - sftp root@localhost:/root <<< $'put ./onlybro
+    - sftp root@localhost:/root <<< $'put ./php
+    - sftp root@localhost:/root <<< $'put ./docker-compose.yml
+
+deploy-job
+  stage: deploy
+  script:
+   - ssh root@localhost "docker-compose up --build"
