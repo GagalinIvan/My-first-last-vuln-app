@@ -11,7 +11,7 @@ build-job:
     - sftp root@localhost:/root <<< $'put ./php
     - sftp root@localhost:/root <<< $'put ./docker-compose.yml
 
-deploy-job
+deploy-job:
   stage: deploy
   script:
    - ssh root@localhost "docker-compose up --build"
