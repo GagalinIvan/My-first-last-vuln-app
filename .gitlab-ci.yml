@@ -4,12 +4,12 @@ stages:
 build-job:
   stage: build
   script:
-    - rsynk root@193.104.57.249:/root <<< $'put ./httpd
-    - rsynk root@193.104.57.249:/root <<< $'put ./000-default
-    - rsynk root@193.104.57.249:/root <<< $'put ./apache2.conf
-    - rsynk root@193.104.57.249:/root <<< $'put ./mariadb
-    - rsynk root@193.104.57.249:/root <<< $'put ./onlybro
-    - rsynk root@193.104.57.249:/root <<< $'put ./docker-compose.yml
+    - rsync root@193.104.57.249:/root <<< $'put ./httpd
+    - rsync root@193.104.57.249:/root <<< $'put ./000-default
+    - rsync root@193.104.57.249:/root <<< $'put ./apache2.conf
+    - rsync root@193.104.57.249:/root <<< $'put ./mariadb
+    - rsync root@193.104.57.249:/root <<< $'put ./onlybro
+    - rsync root@193.104.57.249:/root <<< $'put ./docker-compose.yml
 
 deploy-job:
   stage: deploy
