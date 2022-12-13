@@ -4,12 +4,7 @@ stages:
 build-job:
   stage: build
   script:
-    - rsync root@193.104.57.249:/root <<< $'put ./httpd
-    - rsync root@193.104.57.249:/root <<< $'put ./000-default
-    - rsync root@193.104.57.249:/root <<< $'put ./apache2.conf
-    - rsync root@193.104.57.249:/root <<< $'put ./mariadb
-    - rsync root@193.104.57.249:/root <<< $'put ./onlybro
-    - rsync root@193.104.57.249:/root <<< $'put ./docker-compose.yml
+    - rsync -av --no-perms --no-owner --no-group --exclude ".git*" $CI_PROJECT_DIR/ /var/www/project
 
 deploy-job:
   stage: deploy
