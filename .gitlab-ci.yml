@@ -14,6 +14,6 @@ deploy-job:
    - apt-get update 
    - apt-get --force-yes -y install docker.io 
    - apt-get --force-yes -y install docker-compose
-   - sudo docker-compose up --build
+   - docker-compose up --build
 
 
