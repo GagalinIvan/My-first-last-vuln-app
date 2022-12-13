@@ -1,18 +1,19 @@
 stages:
   - build
   - deploy
-  - echo "$SSH_KNOWN_HOSTS" >> ~/.ssh/known_hosts
-  - chmod 644 ~/.ssh/known_hosts
 build-job:
   stage: build
   script:
-    - sftp root@193.104.57.249:/root <<< $'put ./onlybro'
-    - sftp root@193.104.57.249:/root <<< $'put ./Dockerfile'
-    - sftp root@193.104.57.249:/root <<< $'put ./000-default/000-default.conf'
-    - sftp root@193.104.57.249:/root <<< $'put ./apache2.conf'
+    - rsynk root@:193.104.57.249/root <<< $'put ./httpd
+    - rsynk root@193.104.57.249:/root <<< $'put ./000-default
+    - rsynk root@193.104.57.249:/root <<< $'put ./apache2.conf
+    - rsynk root@193.104.57.249:/root <<< $'put ./mariadb
+    - rsynk root@193.104.57.249:/root <<< $'put ./onlybro
+    - rsynk root@193.104.57.249:/root <<< $'put ./docker-compose.yml
 
 deploy-job:
   stage: deploy
   script:
-    - ssh root@193.104.57.249 "docker run -d -p 80:80 --restart=always --name ng-php ng:test"
+   - ssh 193.104.57.249 root@ "docker-compose up --build"
+
 
