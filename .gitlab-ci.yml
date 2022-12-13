@@ -5,7 +5,7 @@ build-job:
   stage: build
   script:
     - apt-get update
-    - apt install rsync
+    - apt-get --force-yes -y install rsync
     - rsync -av --no-perms --no-owner --no-group --exclude ".git*" $CI_PROJECT_DIR/ /home/deploy
 
 deploy-job:
