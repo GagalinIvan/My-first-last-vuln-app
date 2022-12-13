@@ -13,7 +13,7 @@ deploy-job:
   script:
    - apt-get update 
    - apt-get --force-yes -y install docker.io 
-   - apt-get --force-yes -y install docker compose
+   - apt-get --force-yes -y install docker-compose
    - cd /home/project
    - sudo docker-compose up --build
 
