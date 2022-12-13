@@ -1,19 +1,12 @@
+image: docker:latest
+
 stages:
-  - build
   - deploy
-build-job:
-  stage: build
-  script:
-    - apt-get update
-    - apt-get --force-yes -y install rsync
-    - rsync -av --no-perms --no-owner --no-group --exclude ".git*" $CI_PROJECT_DIR/ /home/project/
 
 deploy-job:
   stage: deploy
   script:
-   - apt-get update 
-   - apt-get --force-yes -y install docker.io 
-   - apt-get --force-yes -y install docker-compose
-   - docker-compose up --build
-
-
+    - apt-get update
+    - apt-get --force-yes -y install rsync
+    - rsync -av --no-perms --no-owner --no-group --exclude ".git*" $CI_PROJECT_DIR/ /var/www/project 
+    - docker-compose --build
