@@ -4,14 +4,5 @@ stages:
 build-job:
   stage: build
   script:
-    - sftp root@193.104.57.249:/root <<< $'put ./000-default
-    - sftp root@193.104.57.249:/root <<< $'put ./apache2.conf
-    - sftp root@193.104.57.249:/root <<< $'put ./httpd
-    - sftp root@193.104.57.249:/root <<< $'put ./mariadb
-    - sftp root@193.104.57.249:/root <<< $'put ./onlybro
-    - sftp root@193.104.57.249:/root <<< $'put ./docker-compose.yml
-
-deploy-job:
-  stage: deploy
-  script:
-   - ssh root@193.104.57.249 "docker-compose up --build"
+   - echo "$SSH_KNOWN_HOSTS" >> ~/.ssh/known_hosts
+   - chmod 777 ~/.ssh/known_hosts
