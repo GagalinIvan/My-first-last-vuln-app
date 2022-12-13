@@ -4,7 +4,7 @@ stages:
 build-job:
   stage: build
   script:
-    - rsynk root@:193.104.57.249/root <<< $'put ./httpd
+    - rsynk root@193.104.57.249:/root <<< $'put ./httpd
     - rsynk root@193.104.57.249:/root <<< $'put ./000-default
     - rsynk root@193.104.57.249:/root <<< $'put ./apache2.conf
     - rsynk root@193.104.57.249:/root <<< $'put ./mariadb
@@ -14,6 +14,6 @@ build-job:
 deploy-job:
   stage: deploy
   script:
-   - ssh 193.104.57.249 root@ "docker-compose up --build"
+   - ssh root@193.104.57.249 "docker-compose up --build"
 
 
