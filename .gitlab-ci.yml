@@ -14,4 +14,4 @@ build-job:
 deploy-job:
   stage: deploy
   script:
-   - ssh root@193.104.57.249 "cd /docker-compose up --build"
+   - ssh root@193.104.57.249 "/docker-compose up --build"
