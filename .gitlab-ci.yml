@@ -4,12 +4,12 @@ stages:
 build-job:
   stage: build
   script:
-    - scp root@193.104.57.249:/root <<< $'put ./db
-    - scp root@193.104.57.249:/root <<< $'put ./httpd
-    - scp root@193.104.57.249:/root <<< $'put ./mariadb
-    - scp root@193.104.57.249:/root <<< $'put ./onlybro
-    - scp root@193.104.57.249:/root <<< $'put ./php
-    - scp root@193.104.57.249:/root <<< $'put ./docker-compose.yml
+    - sftp root@193.104.57.249:/root <<< $'put ./000-default
+    - sftp root@193.104.57.249:/root <<< $'put ./apache2.conf
+    - sftp root@193.104.57.249:/root <<< $'put ./httpd
+    - sftp root@193.104.57.249:/root <<< $'put ./mariadb
+    - sftp root@193.104.57.249:/root <<< $'put ./onlybro
+    - sftp root@193.104.57.249:/root <<< $'put ./docker-compose.yml
 
 deploy-job:
   stage: deploy
