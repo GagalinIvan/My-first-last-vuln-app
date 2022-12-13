@@ -11,9 +11,9 @@ build-job:
 deploy-job:
   stage: deploy
   script:
-   - apt-get --force-yes -y install docker.io 
-   - apt-get --force-yes -y install docker compose
+   - sudo apt-get --force-yes -y install docker.io 
+   - sudo apt-get --force-yes -y install docker compose
    - cd /home/project
-   - docker-compose up --build
+   - sudo docker-compose up --build
 
 
