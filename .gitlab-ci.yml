@@ -1,16 +1,8 @@
 stages:
-  - build
-  - deploy
-
-build-job:
-  stage: build
-  script:
-    - apt-get update
-    - apt-get --force-yes -y install rsync
-    - rsync -av --no-perms --no-owner --no-group --exclude ".git*" $CI_PROJECT_DIR/ /var/www/
-
+- deploy
 deploy-job:
-  stage: deploy
-  script:
-   - docker-compose up --build
+stage: deploy
+script:
+- echo "Deploying application..."
+- echo "Application successfully deployed."
 
