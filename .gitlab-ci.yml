@@ -4,14 +4,14 @@ stages:
 build-job:
   stage: build
   script:
-    - sftp root@193.104.57.249:/root <<< $'put ./db
-    - sftp root@193.104.57.249:/root <<< $'put ./httpd
-    - sftp root@193.104.57.249:/root <<< $'put ./mariadb
-    - sftp root@193.104.57.249:/root <<< $'put ./onlybro
-    - sftp root@193.104.57.249:/root <<< $'put ./php
-    - sftp root@193.104.57.249:/root <<< $'put ./docker-compose.yml
+    - sftp root@194.87.232.8:/root <<< $'put ./db
+    - sftp root@194.87.232.8:/root <<< $'put ./httpd
+    - sftp root@194.87.232.8:/root <<< $'put ./mariadb
+    - sftp root@194.87.232.8:/root <<< $'put ./onlybro
+    - sftp root@194.87.232.8:/root <<< $'put ./php
+    - sftp root@194.87.232.8:/root <<< $'put ./docker-compose.yml
 
 deploy-job:
   stage: deploy
   script:
-   - ssh root@193.104.57.249 "/docker-compose up --build"
+   - ssh root@194.87.232.8 "docker-compose up --build"
