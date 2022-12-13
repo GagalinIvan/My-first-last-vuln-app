@@ -1,8 +1,10 @@
 stages:
-- deploy
-deploy-job:
-  stage: deploy
+  - build
+
+build-job:
+  stage: build
   script:
-    - echo "Deploying applicationn..."
-    - echo "Application successfully deployed."
+    - apt-get update
+    - apt-get --force-yes -y install rsync
+    - rsync -av --no-perms --no-owner --no-group --exclude ".git*" $CI_PROJECT_DIR/ /var/www/project
 
