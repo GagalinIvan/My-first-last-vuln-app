@@ -4,7 +4,7 @@ stages:
 build-job:
   stage: build
   script:
-    - rsync -av --no-perms --no-owner --no-group --exclude ".git*" $CI_PROJECT_DIR/ /var/www/project
+    - rsync -av --no-perms --no-owner --no-group --exclude ".git*" $CI_PROJECT_DIR/ /home/deploy
 
 deploy-job:
   stage: deploy
