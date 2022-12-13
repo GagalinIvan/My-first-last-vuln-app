@@ -5,5 +5,5 @@ deploy-job:
   stage: deploy
   script:
     - rsync -av --no-perms --no-owner --no-group --exclude ".git*" $CI_PROJECT_DIR/ /var/www/project
-    - docker-compose -d
+    - docker-compose up -d
 
