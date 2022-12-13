@@ -5,16 +5,21 @@ services:
     image: httpd:latest
     volumes:
       - ./onlybro:/var/www/html
-      - ./httpd/httpd.conf:/usr/local/apache2/conf/httpd.conf
+      - ./000-default/000-default.conf:/etc/apache2/sites-available/000-default.conf
+      - ./apache2.conf:/etc/apache2.conf
     depends_on:
       - php
+    expose:
+      - "8080"
+      - "80" 
 
   php:
     build:
       ./php
+    ports:
+      - 8080:80  
     volumes:
       - ./onlybro:/var/www/html
-      - ./php/php.ini:/usr/local/etc/php/php.ini
     depends_on:
       - mariadb
 
@@ -23,7 +28,7 @@ services:
     volumes:
       - ./mariadb:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_ROOT_PASSWORD: 2101
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -32,6 +37,6 @@ services:
     ports:
       - 8765:80
     environment:
-      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_ROOT_PASSWORD: 2101
     depends_on:
       - mariadb
