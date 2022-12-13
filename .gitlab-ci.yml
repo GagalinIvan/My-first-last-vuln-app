@@ -3,6 +3,6 @@ stages:
 deploy-job:
   stage: deploy
   script:
-    - echo "Deploying application..."
+    - echo "Deploying applicationn..."
     - echo "Application successfully deployed."
 
