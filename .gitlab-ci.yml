@@ -6,8 +6,8 @@ build-job:
   stage: build
   script:
     - apt-get update
-    - apt install docker.io
-    - apt install docker-compose
+    - sudo --force-yes apt install docker.io
+    - sudo --force-yes apt install docker-compose
 
 deploy-job:
   stage: deploy
