@@ -16,15 +16,14 @@ services:
   php:
     build:
       context: ./
-      dockerfile: Dockerfile  
+      dockerfile: Dockerfile
+      command: docker-php-ext-install mysqli pdo pdo_mysql && docker-php-ext-enable pdo_mysql
     ports:
       - 8080:80  
     volumes:
       - ./onlybro:/var/www/html
     depends_on:
       - mariadb
-    command: 
-      - docker-php-ext-install mysqli pdo pdo_mysql && docker-php-ext-enable pdo_mysql
   
 
   mariadb:
