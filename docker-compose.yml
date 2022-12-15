@@ -15,8 +15,8 @@ services:
 
   php:
     build:
-      context: ./php
-      dockerfile: ./var/www/project/onlybro/Dockerfile
+      context: ./
+      dockerfile: Dockerfile
     ports:
       - 8080:80  
     volumes:
