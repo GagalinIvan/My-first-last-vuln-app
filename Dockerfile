@@ -1,5 +1,6 @@
-FROM php:latest
+FROM php:apache
 RUN apt update
+RUN apt install apache2
 RUN docker-php-ext-install mysqli
 COPY ./onlybro var/www/html/
 COPY ./000-default/000-default.conf /etc/apache2/site-available/000-default.conf
