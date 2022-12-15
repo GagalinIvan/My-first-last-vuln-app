@@ -27,8 +27,7 @@ services:
   mariadb:
     image: mariadb:latest
     volumes:
-      - ./mariadb:/var/lib/mysql
-    ports: 
+      - ./mariadb:/var/lib/mysql 
     environment:
       MYSQL_ROOT_PASSWORD: 1234
 
