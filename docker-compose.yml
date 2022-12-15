@@ -15,7 +15,8 @@ services:
 
   php:
     build:
-      ./php
+      conntext:  ./php
+      dockerfile: ./Dockerfile
     ports:
       - 8080:80  
     volumes:
