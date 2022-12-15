@@ -14,7 +14,9 @@ services:
       - "80" 
 
   php:
-    image: php:latest
+    build:
+      context: ./php
+      dockerfile: ./var/www/project/onlybro/Dockerfile
     ports:
       - 8080:80  
     volumes:
