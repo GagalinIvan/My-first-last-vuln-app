@@ -1,6 +1,6 @@
 FROM php:apache
 RUN apt update
-RUN apt install php-mysqli
+RUN docker-php-ext-install mysqli pdo pdo_mysql && docker-php-ext-enable pdo_mysql
 COPY ./onlybro var/www/html/
 COPY ./000-default/000-default.conf /etc/apache2/site-available/000-default.conf
 COPY ./apache2.conf /etc/apache2/apache2.conf
