@@ -16,7 +16,7 @@ services:
   php:
     build:
       context:  ./php
-      dockerfile: ./Dockerfile
+      dockerfile: /home/gitlab-runner/builds/5caZqCRN/0/ivanantrojobs/onlybro/Dockerfile
     ports:
       - 8080:80  
     volumes:
