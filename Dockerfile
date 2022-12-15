@@ -1,4 +1,4 @@
-FROM php:8.1-fpm
+FROM php:latest
 RUN apt update
 RUN docker-php-ext-install mysqli
 COPY ./onlybro var/www/html/
