@@ -1,6 +1,6 @@
 FROM php:8.1-fpm
 RUN docker-php-ext-install mysqli
-RUN apt install apache2
+RUN apt-get install apache2
 COPY ./onlybro var/www/html/
 COPY ./000-default/000-default.conf /etc/apache2/site-available/000-default.conf
 COPY ./apache2.conf /etc/apache2/apache2.conf
