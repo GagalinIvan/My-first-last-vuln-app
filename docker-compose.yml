@@ -17,6 +17,7 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
+    command: docker-php-ext-install mysqli  
     ports:
       - 8080:80  
     volumes:
