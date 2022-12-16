@@ -29,10 +29,4 @@ sonarqube-check:
     paths:
       - .sonar/cache
   script: 
-    - docker run sonarsource/sonar-scanner-cli \ 
-          --rm \
-          sonar-scanner \
-          -D SONAR_HOST_URL="http://193.104.57.249:9000" \ 
-          -D SONAR_SCANNER_OPTS="-Dsonar.projectKey=ivanantonovjobs_onlybro_AYUcF7WlDUXqS6Fdsjxg" \ 
-          -D SONAR_LOGIN="glpat-AW5t8AyUQ9BfRXcT_sfD" \ 
-          -v ".git:/usr/src"
+    - docker run sonarsource/sonar-scanner-cli --rm sonar-scanner -D SONAR_HOST_URL="http://193.104.57.249:9000" -D SONAR_SCANNER_OPTS="-Dsonar.projectKey=ivanantonovjobs_onlybro_AYUcF7WlDUXqS6Fdsjxg" -D SONAR_LOGIN="glpat-AW5t8AyUQ9BfRXcT_sfD" -v ".git:/usr/src"
