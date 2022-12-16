@@ -46,6 +46,6 @@ services:
   sonarqube:
     image: sonarqube:8.6-community
     ports:
-      - 9000:80
+      - 9000:8080
     environment:
       - SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true   
