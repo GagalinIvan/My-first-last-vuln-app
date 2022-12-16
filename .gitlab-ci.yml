@@ -29,4 +29,4 @@ sonarqube-check:
     paths:
       - .sonar/cache
   script: 
-    - --batch-mode verify sonar:sonar -Dsonar.host.url=$SONAR_URL -Dsonar.login=$SONAR_LOGIN -Dsonar.password.password=$SONAR_PASSWORD
+    -mvn --batch-mode verify sonar:sonar -Dsonar.host.url=$SONAR_URL -Dsonar.login=$SONAR_LOGIN -Dsonar.password.password=$SONAR_PASSWORD
