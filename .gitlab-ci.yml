@@ -34,6 +34,5 @@ sonarqube-check:
           -e SONAR_HOST_URL="http://$193.104.57.249:9000" \ 
           -e SONAR_SCANNER_OPTS="-Dsonar.projectKey=$ivanantonovjobs_onlybro_AYUcF7WlDUXqS6Fdsjxg" \ 
           -e SONAR_LOGIN="glpat-AW5t8AyUQ9BfRXcT_sfD" \ 
-          -v "$.git:/usr/src" \ 
-          sonarsource/sonar-scanner-cli
+          -v "$.git:/usr/src"
  
