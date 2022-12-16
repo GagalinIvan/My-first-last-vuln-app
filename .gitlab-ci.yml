@@ -29,8 +29,4 @@ sonarqube-check:
     paths:
       - .sonar/cache
   script: 
-    docker run  sonarsource/sonar-scanner-cli \
-    --rm \
-    -e SONAR_HOST_URL="http://$SONAR_HOST_URL" \
-    -e SONAR_SCANNER_OPTS="-Dsonar.projectKey=$SONAR_TOKEN"
-    -e SONAR_LOGIN="glpat-AW5t8AyUQ9BfRXcT_sfD"
+    - --batch-mode verify sonar:sonar -Dsonar.host.url=$SONAR_URL -Dsonar.login=$SONAR_LOGIN -Dsonar.password.password=$SONAR_PASSWORD
