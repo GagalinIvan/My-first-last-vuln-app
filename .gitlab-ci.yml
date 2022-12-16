@@ -1,6 +1,6 @@
 stages:
   - build
-  - test
+  - sonar-scan
   - deploy
 
 build-job:
@@ -11,7 +11,7 @@ build-job:
     - sudo  apt install docker-compose
 
 sonarqube-check:
-  stage: test
+  stage: sonar-scan
   tags: 
     - docker
   image: 
@@ -27,8 +27,6 @@ sonarqube-check:
   script: 
     - sonar-scanner
   allow_failure: true
-  only:
-    - master # or the name of your main branch
 
 
 deploy-job:
