@@ -31,4 +31,4 @@ sonarqube-check:
   script: 
     - pwd
     - sonar-scanner
-  allow_failure: true
+ 
