@@ -86,12 +86,10 @@ services:
       - sonarnet
     volumes:
       - ./:/usr/src
+    
 
 networks:
-  sonarnet:
-  expose:
-  - "8080"
-  - "80" 
+  sonarnet: 
 
 volumes:
   sonarqube_conf:
