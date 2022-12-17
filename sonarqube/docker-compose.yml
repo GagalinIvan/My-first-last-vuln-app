@@ -20,8 +20,6 @@ services:
   sonarscanner:
     container_name: sonarscanner
     image: sonarsource/sonar-scanner-cli
-    networks:
-      - sonarnet
     volumes:
       - ./:/usr/src
   
