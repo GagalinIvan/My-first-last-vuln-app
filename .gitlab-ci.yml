@@ -9,7 +9,7 @@ build-job:
     - sudo apt-get update
     - sudo  apt install docker.io
     - sudo  apt install docker-compose
-    - cd ./sonarqube/docker-compose.yml
+    - cd ./sonarqube
     - docker-compose up
 
 # test-job:
