@@ -76,14 +76,8 @@ services:
   sonarscanner:
     container_name: sonarscanner
     image: newtmitch/sonar-scanner
-    networks:
-      - sonarnet
     volumes:
       - ./:/usr/src
-
-networks:
-  sonarnet:
-
 volumes:
   sonarqube_conf:
   sonarqube_data:
