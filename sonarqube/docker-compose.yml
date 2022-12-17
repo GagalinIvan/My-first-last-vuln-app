@@ -17,9 +17,6 @@ services:
       - sonarqube_logs:/opt/sonarqube/logs
       - sonarqube_extensions:/opt/sonarqube/extensions
       - sonarqube_bundled-plugins:/opt/sonarqube/lib/bundled-plugins
-    expose: 
-      - "8000"
-      - "80"
   db:
     container_name: sonardb
     image: postgres:latest
