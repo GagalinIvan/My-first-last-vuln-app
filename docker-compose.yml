@@ -29,12 +29,12 @@ services:
 
   mariadb:
     image: mariadb:latest
-    volumes:
-    networks:
-      - sonarnet  
+    volumes:  
       - ./mariadb:/var/lib/mysql 
     environment:
-      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_ROOT_PASSWORD: 1234\
+    networks:
+      - sonarnet   
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
