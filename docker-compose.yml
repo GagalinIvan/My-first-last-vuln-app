@@ -62,7 +62,7 @@ services:
   db:
     image: postgres:latest
     hostname: postgresql
-    container_name: postgresql
+    container_name: sonardb
     environment:
       POSTGRES_USER: sonar
       POSTGRES_PASSWORD: sonar
