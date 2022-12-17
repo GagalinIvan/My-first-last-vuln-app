@@ -58,7 +58,7 @@ services:
       - sonarqube_logs:/opt/sonarqube/logs
     ports:
       - "9000:9000"
-
+  
   db:
     image: postgres:13
     hostname: postgresql
@@ -71,9 +71,9 @@ services:
       - postgresql:/var/lib/postgresql
       - postgresql_data:/var/lib/postgresql/data
 
-volumes:
-  sonarqube_data:
-  sonarqube_extensions:
-  sonarqube_logs:
-  postgresql:
-  postgresql_data:     
+  volumes:
+    sonarqube_data:
+    sonarqube_extensions:
+    sonarqube_logs:
+    postgresql:
+    postgresql_data:
