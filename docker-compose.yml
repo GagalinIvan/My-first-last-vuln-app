@@ -89,9 +89,9 @@ services:
 
 networks:
   sonarnet:
-    expose:
-      - "8080"
-      - "80" 
+  expose:
+  - "8080"
+  - "80" 
 
 volumes:
   sonarqube_conf:
