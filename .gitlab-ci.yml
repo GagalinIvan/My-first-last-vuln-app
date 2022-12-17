@@ -1,6 +1,6 @@
 stages:
   - build
-  - test
+# - test
   - deploy
 
 build-job:
@@ -9,10 +9,20 @@ build-job:
     - sudo apt-get update
     - sudo  apt install docker.io
     - sudo  apt install docker-compose
+    - cd /sonarqube
+    - docker-compose up
+
 test-job:
   stage: test
   script:
-    - echo "hello world!"
+    - docker run \
+     --rm \
+     -e SONAR_HOST_URL="http://193.104.57.249:9000" \
+     -e SONAR_SCANNER_OPTS="-Dsonar.projectKey=${YOUR_PROJECT_KEY}"
+     -e SONAR_LOGIN="myAuthenticationToken" \
+     -v "${YOUR_REPO}:/usr/src" \
+     sonarsource/sonar-scanner-cli
+
 deploy-job:
   stage: deploy
   script:
