@@ -45,7 +45,7 @@
     
 
   networks:
-    sonarnet: 
+    sonarnet:
 
   volumes:
     sonarqube_conf:
