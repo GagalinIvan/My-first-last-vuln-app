@@ -25,7 +25,7 @@
 
   db:
     container_name: sonardb
-    image: postgres
+    image: postgres:latest
     networks:
       - sonarnet
     environment:
