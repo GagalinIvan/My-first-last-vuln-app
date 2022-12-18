@@ -5,7 +5,7 @@ services:
     container_name: sonarscanner
     image: sonarsource/sonar-scanner-cli
     volumes:
-      - ./home/gitlab-runner/builds/cAcgUEf_/0/ivanantonovjobs/onlybro:/usr/src
+      - ./onlybro:/usr/src
   
   
   
