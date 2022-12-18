@@ -6,9 +6,9 @@ stages:
 build-job:
   stage: build
   script:
-    - sudo apt-get update
-    - sudo  apt install docker.io
-    - sudo  apt install docker-compose
+    - apt-get update
+    - apt install docker.io
+    - apt install docker-compose
     - cd ./sonarqube
     - docker-compose up
 
