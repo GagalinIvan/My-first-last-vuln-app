@@ -60,7 +60,7 @@ services:
       - "9000:9000"
   
   db:
-    image: postgresql:latest
+    image: postgresql
     hostname: postgresql
     container_name: sonardb
     environment:
