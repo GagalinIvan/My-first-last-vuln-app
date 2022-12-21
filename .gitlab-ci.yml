@@ -36,7 +36,8 @@ scan-job:
   script:
     - pwd
     - ls
-    - docker run owasp/zap2docker-stable zap-full-scan.py -t "http://176.113.83.63:8080"
+    - docker run owasp/zap2docker-stable zap-full-scan.py -t "http://176.113.83.63" -P 8080 -I -r testreport.html
+    - cp /zap/wrk/testreport.html /home/gitlab-runner/builds/cAcgUEf_/0/ivanantonovjobs/onlybro/testreport.html
   artifacts:
     when: always
     
