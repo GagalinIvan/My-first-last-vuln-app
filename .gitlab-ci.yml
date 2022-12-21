@@ -2,6 +2,7 @@ stages:
   - build
   - test
   - deploy
+  - scan
 
 build-job:
   stage: build
@@ -26,3 +27,18 @@ deploy-job:
     - rsync -av --no-perms --no-owner --no-group --exclude ".git*" $CI_PROJECT_DIR/ /var/www/project 
     - docker-compose up
 
+scan-job: 
+  stage: scan
+  image:
+    name: owasp/zap2docker-stable 
+  before_script:
+    - mkdir -p /zap/wrk
+  script:
+    - pwd
+    - ls
+    - zap-full-scan.py -t "http://176.113.83.63:8080" -I -r testreport.html --hook=/zap/auth_hook.py -z "auth.loginurl=http://176.113.83.63:8080/signin.php auth.username_field="login" auth.password_field="password" auth.username="name" auth.password="1234""
+    - cp /zap/wrk/testreport.html testreport.html
+  artifacts:
+    when: always
+    paths:
+      - testreport.html
