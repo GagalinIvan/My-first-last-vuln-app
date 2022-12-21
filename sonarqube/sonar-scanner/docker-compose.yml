@@ -1,0 +1,9 @@
+version: '3.7'
+
+services:
+
+ sonarscanner:
+    container_name: sonarscanner
+    image: sonarsource/sonar-scanner-cli
+    volumes:
+      - ./home/gitlab-runner/builds/cAcgUEf_/0/ivanantonovjobs/onlybro/:/usr/src
