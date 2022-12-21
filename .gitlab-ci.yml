@@ -1,6 +1,6 @@
 stages:
   - build
-#  - test
+  - test
   - deploy
 
 build-job:
@@ -12,16 +12,12 @@ build-job:
     - cd ./sonarqube
     - docker-compose up
 
-# test-job:
-#   stage: test
-#   script:
-#     - docker run \
-#      --rm \
-#      -e SONAR_HOST_URL="http://193.104.57.249:9000" \
-#      -e SONAR_SCANNER_OPTS="-Dsonar.projectKey=${YOUR_PROJECT_KEY}"
-#      -e SONAR_LOGIN="myAuthenticationToken" \
-#      -v "${YOUR_REPO}:/usr/src" \
-#      sonarsource/sonar-scanner-cli
+test-job:
+  stage: test
+  script:
+    - cd ./sonarqube/sonar-scanner
+    - docker-compose up 
+    - docker run -v /home/gitlab-runner/builds/cAcgUEf_/0/ivanantonovjobs/onlybro/:/usr/src sonarsource/sonar-scanner-cli -Dsonar.projectKey=only-bro \ -Dsonar.sources=. \ -Dsonar.host.url=http://176.113.83.63:9000 \ -Dsonar.login=sqp_7e0d7762218ad3a17ac15ebdabab684107d3bbef
 
 deploy-job:
   stage: deploy
