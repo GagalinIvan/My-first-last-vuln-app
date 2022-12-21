@@ -9,12 +9,13 @@ build-job:
     - apt-get update
     - apt install docker.io
     - apt install docker-compose
-    - cd ./sonarqube
-    - docker-compose up
+  
 
 test-job:
   stage: test
   script:
+    - cd ./sonarqube
+    - docker-compose up
     - cd ./sonarqube/sonar-scanner
     - docker-compose up 
     - docker run -v /home/gitlab-runner/builds/cAcgUEf_/0/ivanantonovjobs/onlybro/:/usr/src sonarsource/sonar-scanner-cli -Dsonar.projectKey=only-bro \ -Dsonar.sources=. \ -Dsonar.host.url=http://176.113.83.63:9000 \ -Dsonar.login=sqp_7e0d7762218ad3a17ac15ebdabab684107d3bbef
