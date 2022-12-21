@@ -41,4 +41,8 @@ services:
       MYSQL_ROOT_PASSWORD: 1234
     depends_on:
       - mariadb
-
+  
+  zap:
+    image: owasp/zap2docker-stable
+    ports:
+      - 9095:80
