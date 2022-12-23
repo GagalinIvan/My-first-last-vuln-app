@@ -48,5 +48,5 @@ deploy-job:
 trufflehog:
   stage: secrets
   image: python:3-alpine
-  script: docker run -v /home/gitlab-runner/builds/cAcgUEf_/0/ivanantonovjobs/onlybro/:/home/gitlab-runner/builds/cAcgUEf_/0/ivanantonovjobs/onlybro/ --user root python:3.7.16-slim-bullseye | apk add --no-cache git | pip install trufflehog | adduser -S truffleHog | trufflehog --entropy true file://home/gitlab-runner/builds/cAcgUEf_/0/ivanantonovjobs/onlybro/     
+  script: docker run -v /home/gitlab-runner/builds/cAcgUEf_/0/ivanantonovjobs/onlybro/:/home/gitlab-runner/builds/cAcgUEf_/0/ivanantonovjobs/onlybro/ --user root python:latest | apk add --no-cache git | pip install trufflehog | adduser -S truffleHog | trufflehog --entropy true file://home/gitlab-runner/builds/cAcgUEf_/0/ivanantonovjobs/onlybro/     
     
