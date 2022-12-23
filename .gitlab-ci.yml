@@ -52,5 +52,5 @@ deploy-job:
 trufflehog:
   stage: secrets
   image: trufflesecurity/trufflehog:latest
-  script: docker run -it -v file://home/gitlab-runner/builds/cAcgUEf_/0/ivanantonovjobs/onlybro/:/pwd trufflesecurity/trufflehog:latest github --repo https://github.com/trufflesecurity/test_keys   
+  script: docker run -v file://home/gitlab-runner/builds/cAcgUEf_/0/ivanantonovjobs/onlybro/:/pwd trufflesecurity/trufflehog:latest github --repo https://github.com/trufflesecurity/test_keys   
     
