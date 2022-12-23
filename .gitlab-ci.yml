@@ -14,6 +14,10 @@ build-job:
     - apt install docker-compose
     # - cd ./sonarqube
     # - docker-compose up -d
+    - docker pull trufflesecurity/trufflehog
+    - docker pull sonarsource/sonar-scanner-cli:latest
+    - docker pull owasp/zap2docker-stable
+
   
 
 # test-job:
@@ -47,6 +51,6 @@ deploy-job:
 
 trufflehog:
   stage: secrets
-  image: python:3-alpine
-  script: docker run -v /home/gitlab-runner/builds/cAcgUEf_/0/ivanantonovjobs/onlybro/:/home/gitlab-runner/builds/cAcgUEf_/0/ivanantonovjobs/onlybro/ --user root python:latest | apk add --no-cache git | pip install trufflehog | adduser -S truffleHog | trufflehog --entropy true file://home/gitlab-runner/builds/cAcgUEf_/0/ivanantonovjobs/onlybro/     
+  image: trufflesecurity/trufflehog:latest
+  script: docker run -it -v file://home/gitlab-runner/builds/cAcgUEf_/0/ivanantonovjobs/onlybro/:/pwd trufflesecurity/trufflehog:latest github --repo https://github.com/trufflesecurity/test_keys   
     
