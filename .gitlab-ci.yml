@@ -2,7 +2,7 @@ stages:
   - build
   # - test
   - deploy
-  - scan
+ # - scan
   - secrets
 
 
@@ -29,28 +29,24 @@ deploy-job:
     - rsync -av --no-perms --no-owner --no-group --exclude ".git*" $CI_PROJECT_DIR/ /var/www/project 
     - docker-compose up -d
 
-scan-job: 
-  stage: scan
-  image:
-    name: owasp/zap2docker-stable 
-  before_script:
-    - mkdir -p /zap/wrk
-  script:
-      - pwd
-      - ls
-      - docker run -v /zap/wrk:/zap/wrk:rw --user root owasp/zap2docker-stable zap-full-scan.py -t "http://176.113.83.63:8080" -I -r testreport.html
-      - cp /zap/wrk/testreport.html testreport.html
-  artifacts:
-    when: always
-    paths:
-      - testreport.html
+# scan-job: 
+#   stage: scan
+#   image:
+#     name: owasp/zap2docker-stable 
+#   before_script:
+#     - mkdir -p /zap/wrk
+#   script:
+#       - pwd
+#       - ls
+#       - docker run -v /zap/wrk:/zap/wrk:rw --user root owasp/zap2docker-stable zap-full-scan.py -t "http://176.113.83.63:8080" -I -r testreport.html
+#       - cp /zap/wrk/testreport.html testreport.html
+#   artifacts:
+#     when: always
+#     paths:
+#       - testreport.html
 
 trufflehog:
   stage: secrets
   image: python:3-alpine
-  script:
-    - apk add --no-cache git
-    - pip install trufflehog
-    - adduser -S truffleHog
-    - trufflehog --entropy true file://      
+  script: docker run -v /home/gitlab-runner/builds/cAcgUEf_/0/ivanantonovjobs/onlybro/:/home/gitlab-runner/builds/cAcgUEf_/0/ivanantonovjobs/onlybro/ --user root python:3-alpline | apk add --no-cache git | pip install trufflehog | adduser -S truffleHog | trufflehog --entropy true file://home/gitlab-runner/builds/cAcgUEf_/0/ivanantonovjobs/onlybro/     
     
